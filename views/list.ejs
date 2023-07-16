@@ -1,0 +1,21 @@
+    <%- include("header") -%>
+    
+    <div class="box" id="heading">
+    <h1><%=listTitle %></h1>
+    </div>
+
+    <div class="box">
+        <% for(var i=0;i < listItems.length;i++) { %>            // scriplet tags allowes us to use javascript in ejs file <% %>
+        <div class="item">                                       // listItems array is send to the client side from the server side 
+        <input type="checkbox">                                     
+        <p><%=listItems[i]%></p>
+        </div>
+        <% } %>
+    
+    <form action="/" method="post">                                                       
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list" value=<%= listTitle%>>+</button>
+    </form>
+
+    </div>
+    <%- include("footer") -%>
